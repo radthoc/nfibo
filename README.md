@@ -4,7 +4,7 @@
 
 ## nFibo
 
-This was a coding challenge to calculates the Nth Fibonacci number using **docker** and setup a gitlab **CI** to run the tests everytime a commit is pushed 
+This was a coding challenge to calculate the Nth Fibonacci number using **docker** and setup a gitlab **CI** to run the tests everytime a commit is pushed 
 
 ## Build
 #### Run the environment
