@@ -1,0 +1,28 @@
+image: docker/compose
+
+variables:
+  DOCKER_DRIVER: overlay
+
+services:
+  - docker:dind
+
+cache:
+  paths:
+    - vendor/
+
+before_script:
+  - docker info
+  - apk update
+  - apk upgrade
+  - apk add --no-cache docker-compose
+  - docker-compose build app
+
+stages:
+  - test
+
+unit_test:
+  stage: test
+  script:
+    - docker-compose up -d
+    - docker-compose exec -T app composer install
+    - docker-compose exec -T app ./vendor/bin/phpunit
